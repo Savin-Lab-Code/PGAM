@@ -7,9 +7,8 @@ try:
 
             sys.path.append(sys.argv[1])
             print('path set to',sys.argv[1])
-
     else:
-        print('path',sys.path.append(sys.argv[1]),'do not exist')
+        pass
 except IndexError:
     pass
 from gam_data_handlers import *
@@ -34,7 +33,7 @@ try:
     import skcuda.linalg as cuda_linalg
     flagUseCuda = True
 except ModuleNotFoundError as e:
-    print(e)
+    #print(e)
     flagUseCuda = False
 
 
@@ -660,15 +659,13 @@ class GAM_result(object):
 
 
 class general_additive_model(object):
-    def __init__(self, sm_handler, var_list, y ,family,fisher_scoring=False):
+    def __init__(self, sm_handler, var_list, y ,family,fisher_scoring=True):
         """
 
         :param sm_handler:
         :param var_list:
         :param y:
-        :param smooth_pen:
         :param link: statsmoldels.genmod.families.links.link class
-        :param lam:
         :param fisher_scoring:
         """
 
